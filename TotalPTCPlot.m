@@ -1,12 +1,10 @@
 h = 132;    v = 142; Np = h*v; data = ones(h,v);   datar = ones(h,v);
 Contentsh = ["1","10","25","50","75","100","175","200","250","300","400","500","600","700","900","1100","1300","1500"];
 Contents = ["1","5","10","25","50","100","200","350","450","550","1000","2000","2500"];
-Var = 1:length(Contentsh); j=150;
-for j = 1:length(Contentsh);
-    Contents = ["1","5","10","25","50","100","200","350","450","550","1000","2000","2500"];
-    Contentsh = ["1","10","25"',"50","75","100","175","200","250","300","400","500","600","700","900","1100","1300","1500"];
-    raw = load(append('C:\Users\alasd\OneDrive\Documents\!UniWork\Project\Extra\csv_images\csv_images\h'+string(Contentsh(j))+'.csv'));
-    rawr = load(append('C:\Users\alasd\OneDrive\Documents\!UniWork\Project\Extra\csv_images\csv_images\h'+string(Contentsh(j))+'r.csv'));
+Var = 1:length(Contents); j=150;
+for j = 1:length(Contents);
+    raw = load(append('C:\Users\alasd\OneDrive\Documents\!UniWork\Project\Extra\csv_images\csv_images\'+string(Contents(j))+'.csv'));
+    rawr = load(append('C:\Users\alasd\OneDrive\Documents\!UniWork\Project\Extra\csv_images\csv_images\'+string(Contents(j))+'r.csv'));
     for i = 1:h                                                     %load arrays to match pictures
         data(i,:) = raw(((i-1)*v)+1:(i*v));
         i=i+1;
@@ -22,7 +20,7 @@ for j = 1:length(Contentsh);
 end
 sigma = sqrt(Var)                                                 %RMS standard deviation
 Y = log10(sigma)                                                  %X and Y values to plot on graph
-X = log10(str2double(Contentsh))
+X = log10(str2double(Contents))
 scatter(X,Y)
 xlabel('log(Intensity)')
 ylabel('log(RMS noise)')
