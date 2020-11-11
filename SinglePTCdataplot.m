@@ -8,11 +8,9 @@ rawr = load(append('C:\Users\alasd\OneDrive\Documents\!UniWork\Project\Extra\csv
 %load from file 2 pictures
 for i = 1:h                                                     %load arrays to match pictures
         data(i,:) = raw(((i-1)*v)+1:(i*v));
-        i=i+1;
 end
 for i = 1:h
         datar(i,:) = rawr(((i-1)*v)+1:(i*v));
-        i=i+1;
 end
 truepic = data(3:h,:);                  truepicr = datar(3:h,:);  %ignore top 2 rows of pixels
 truepic = truepic - (sum(sum(truepic))./Np);     truepicr = truepicr - (sum(sum(truepicr))./Np);    %calculate offset
