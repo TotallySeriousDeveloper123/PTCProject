@@ -19,7 +19,7 @@ for j = 1:length(Intensity) %Loop through each image and find individual varianc
     diff = (inpA-inpB);
     mu = sum(sum(diff))/numel(diff);
     diff = diff-mu;
-    Var(j) = sum(sum(diff.^2))/(numel(datA));
+    Var(j) = sum(sum(diff.^2))/(2*numel(datA));
     signal(j) = sum(sum(datA))/numel(datA);
 %     %end of FPN remove
 end
